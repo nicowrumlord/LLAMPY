@@ -1,0 +1,8 @@
+services:
+  pdf_processor:
+    build: .
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
