@@ -1,12 +1,14 @@
 import time
 import os
+from dotenv import load_dotenv 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from llama_parse import LlamaParse
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 
+load_dotenv()
 
-LlamaParse_api_key = "llx-rGnYIa6alLxmW2PnOI0baqEwQV37QAkfiG87VK2fkJnCZCcd"
+llamaparse_api_key = os.getenv('API_KEY_LLAMAPARSE')
 
 INPUT_DIR = "/app/input"
 OUTPUT_DIR = "/app/output"
@@ -20,8 +22,7 @@ def llama_parser(api_key):
 
 def directory_reader(parser):
     file_extractor = {".pdf": parser}
-    documents = SimpleDirectoryReader(input_files= , file_extractor=).load_data() #read more about this object 
-
+    documents = SimpleDirectoryReader(input_files= "" , file_extractor= "").load_data() #read more about this object 
 
 
 '''TODO - MAKE A LIST OF ALREADY PARSED FILES AS FILES WILL BE PASSED INDIVIDUALLY '''
